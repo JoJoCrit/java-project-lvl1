@@ -8,18 +8,14 @@ public class Calc {
     private static final String[] MATH_OPERATOR = new String[]{"+", "-", "*"};
     private static String gameCalcLogic(int firstRandomNumber, int secondRandomNumber, String randomOperator) {
         int result;
-        switch (randomOperator) {
-            case "+":
-                result = firstRandomNumber + secondRandomNumber;
-                break;
-            case "-":
-                result = firstRandomNumber - secondRandomNumber;
-                break;
-            case "*":
-                result = firstRandomNumber * secondRandomNumber;
-                break;
-            default :
-                return "";
+        if ("+".equals(randomOperator)) {
+            result = firstRandomNumber + secondRandomNumber;
+        } else if ("-".equals(randomOperator)) {
+            result = firstRandomNumber - secondRandomNumber;
+        } else if ("*".equals(randomOperator)) {
+            result = firstRandomNumber * secondRandomNumber;
+        } else {
+            return "";
         }
         return String.valueOf(result);
     }

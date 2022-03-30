@@ -1,11 +1,14 @@
 package hexlet.code;
+
 import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
+
     public static final int ROUNDS_COUNT = 3;
     public static final int MAX_RANDOM = 100;
     private static int answerCOUNT = 0;
+    public static final int PROGRESSION_LENGTH = 10;
     public static final String INCORRECT_ANSWER = "'%s' is wrong answer ;(. Correct answer was '%s'.";
 
     public static String getUserName() {
