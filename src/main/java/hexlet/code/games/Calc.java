@@ -1,5 +1,6 @@
 package hexlet.code.games;
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 
 public class Calc {
@@ -21,21 +22,19 @@ public class Calc {
     }
 
     public static void gameCalc() {
-        String[] gameQuestions = new String[Engine.ROUNDS_COUNT];
-        String[] correctAnswers = new String[Engine.ROUNDS_COUNT];
 
+        String[][] gameQuestionsAndAnswers = new String[Engine.ROUNDS_COUNT][Engine.ROUNDS_COUNT];
         for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
 
-            int firstRandomNumber = Engine.getRandomNumber(Engine.MAX_RANDOM);
-            int secondRandomNumber = Engine.getRandomNumber(Engine.MAX_RANDOM);
+            int firstRandomNumber = Utils.getRandomNumber(Utils.MAX_RANDOM);
+            int secondRandomNumber = Utils.getRandomNumber(Utils.MAX_RANDOM);
+            String randomOperator = MATH_OPERATOR[Utils.getRandomNumber(MATH_OPERATOR.length)];
 
-            String randomOperator = MATH_OPERATOR[Engine.getRandomNumber(MATH_OPERATOR.length)];
-
-
-            gameQuestions[i] = String.format("%s %s %s", firstRandomNumber, randomOperator, secondRandomNumber);
-            correctAnswers[i] = gameCalcLogic(firstRandomNumber, secondRandomNumber, randomOperator);
+            gameQuestionsAndAnswers[i][0] = String.format("%s %s %s", firstRandomNumber,
+                    randomOperator, secondRandomNumber);
+            gameQuestionsAndAnswers[i][1] = gameCalcLogic(firstRandomNumber, secondRandomNumber, randomOperator);
 
         }
-        Engine.gameStart(GAME_RULES, gameQuestions, correctAnswers);
+        Engine.gameStart(GAME_RULES, gameQuestionsAndAnswers);
     }
 }

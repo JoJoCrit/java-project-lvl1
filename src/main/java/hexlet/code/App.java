@@ -31,8 +31,8 @@ public class App {
             case "4" -> GCD.gameGCD();
             case "5" -> Progression.gameProgression();
             case "6" -> Prime.gamePrime();
-            case "0" -> System.out.println(" ");
-            default -> System.out.println("Exit");
+            case "0" -> System.out.println("Exit");
+            default -> System.out.println("Sorry, unknown command!");
         }
     }
 }
