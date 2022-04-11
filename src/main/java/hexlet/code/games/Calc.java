@@ -6,22 +6,8 @@ import hexlet.code.Utils;
 public class Calc {
 
     public static final String GAME_RULES = "What is the result of the expression?";
-    private static final String[] MATH_OPERATOR = new String[]{"+", "-", "*"};
-    private static String gameCalcLogic(int firstRandomNumber, int secondRandomNumber, String randomOperator) {
-        int result;
-        if ("+".equals(randomOperator)) {
-            result = firstRandomNumber + secondRandomNumber;
-        } else if ("-".equals(randomOperator)) {
-            result = firstRandomNumber - secondRandomNumber;
-        } else if ("*".equals(randomOperator)) {
-            result = firstRandomNumber * secondRandomNumber;
-        } else {
-            return "";
-        }
-        return String.valueOf(result);
-    }
 
-    public static void gameCalc() {
+    public static void gameCalc () {
 
         String[][] gameQuestionsAndAnswers = new String[Engine.ROUNDS_COUNT][Engine.ROUNDS_COUNT];
         for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
@@ -36,5 +22,19 @@ public class Calc {
 
         }
         Engine.gameStart(GAME_RULES, gameQuestionsAndAnswers);
+    }
+    private static final String[] MATH_OPERATOR = new String[]{"+", "-", "*"};
+    private static String gameCalcLogic(int firstRandomNumber, int secondRandomNumber, String randomOperator) {
+        int result;
+        if ("+".equals(randomOperator)) {
+            result = firstRandomNumber + secondRandomNumber;
+        } else if ("-".equals(randomOperator)) {
+            result = firstRandomNumber - secondRandomNumber;
+        } else if ("*".equals(randomOperator)) {
+            result = firstRandomNumber * secondRandomNumber;
+        } else {
+            return "Sorry, unknown operator!";
+        }
+        return String.valueOf(result);
     }
 }

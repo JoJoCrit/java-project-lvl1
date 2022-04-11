@@ -12,12 +12,12 @@ public class GCD {
             int firstRandomNumber = Utils.getRandomNumber(Utils.MAX_RANDOM);
             int secondRandomNumber = Utils.getRandomNumber(Utils.MAX_RANDOM);
             gameQuestionsAndAnswers[i][0] = String.format("%s %s", firstRandomNumber, secondRandomNumber);
-            gameQuestionsAndAnswers[i][1] = String.valueOf(gameGCDlogic(firstRandomNumber, secondRandomNumber));
+            gameQuestionsAndAnswers[i][1] = String.valueOf(findingGCD(firstRandomNumber, secondRandomNumber));
         }
         Engine.gameStart(GAME_RULES, gameQuestionsAndAnswers);
     }
 
-    private static int gameGCDlogic(int number1, int number2) {
+    private static int findingGCD(int number1, int number2) {
         while (number1 > 0 && number2 > 0) {
             if (number1 > number2) {
                 number1 = number1 % number2;
