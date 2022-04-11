@@ -7,7 +7,7 @@ public class Calc {
 
     public static final String GAME_RULES = "What is the result of the expression?";
 
-    public static void gameCalc () {
+    public static void gameCalc() {
 
         String[][] gameQuestionsAndAnswers = new String[Engine.ROUNDS_COUNT][Engine.ROUNDS_COUNT];
         for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
