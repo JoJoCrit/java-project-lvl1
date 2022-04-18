@@ -4,7 +4,7 @@ import hexlet.code.Utils;
 
 
 public class Calc {
-
+    private static final String[] MATH_OPERATOR = new String[]{"+", "-", "*"};
     public static final String GAME_RULES = "What is the result of the expression?";
 
     public static void gameCalc() {
@@ -23,18 +23,13 @@ public class Calc {
         }
         Engine.gameStart(GAME_RULES, gameQuestionsAndAnswers);
     }
-    private static final String[] MATH_OPERATOR = new String[]{"+", "-", "*"};
     private static String gameCalcLogic(int firstRandomNumber, int secondRandomNumber, String randomOperator) {
-        int result;
-        if ("+".equals(randomOperator)) {
-            result = firstRandomNumber + secondRandomNumber;
-        } else if ("-".equals(randomOperator)) {
-            result = firstRandomNumber - secondRandomNumber;
-        } else if ("*".equals(randomOperator)) {
-            result = firstRandomNumber * secondRandomNumber;
-        } else {
-            return "Sorry, unknown operator!";
-        }
-        return String.valueOf(result);
+
+        return switch (randomOperator) {
+            case "+" -> Integer.toString(firstRandomNumber + secondRandomNumber);
+            case "-" -> Integer.toString(firstRandomNumber - secondRandomNumber);
+            case "*" -> Integer.toString(firstRandomNumber * secondRandomNumber);
+            default -> "Sorry, unknown operator!";
+        };
     }
 }

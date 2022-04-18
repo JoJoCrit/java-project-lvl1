@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class Engine {
 
     public static final int ROUNDS_COUNT = 3;
-    private static int answerCOUNT = 0;
     public static final int PROGRESSION_LENGTH = 10;
     public static final String INCORRECT_ANSWER = "'%s' is wrong answer ;(. Correct answer was '%s'.";
 
@@ -16,8 +15,7 @@ public class Engine {
         System.out.println("Hello, " + playerName + "!");
         System.out.println(gameRules);
 
-        int i;
-        for (i = 0; i < ROUNDS_COUNT; i++) {
+        for (int i = 0; i < ROUNDS_COUNT; i++) {
 
             System.out.print("Question: ");
             System.out.println(gameQuestionsAndAnswers[i][0]);
@@ -25,15 +23,12 @@ public class Engine {
             String playerAnswer = sc.nextLine();
             if (playerAnswer.equals(gameQuestionsAndAnswers[i][1])) {
                 System.out.println("Correct!");
-                answerCOUNT++;
             } else {
                 System.out.printf((INCORRECT_ANSWER) + "%n", playerAnswer, gameQuestionsAndAnswers[i][1]);
                 System.out.println("Let's try again, " + playerName + "!");
                 return;
             }
-            if (answerCOUNT == ROUNDS_COUNT) {
-                System.out.println("Congratulations, " + playerName + "!");
-            }
         }
+        System.out.println("Congratulations, " + playerName + "!");
     }
 }
